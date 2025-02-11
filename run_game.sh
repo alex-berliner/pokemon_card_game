@@ -19,4 +19,4 @@ tmux new-session -d -s $SD_SERV_ID "cd $BASE/pokemon/pokemon-showdown; node poke
 tmux new-session -d -s $HW_ABS_SVC_ID "cd $BASE/nfc/py/pokemon/core/; python hardware_abstraction_svc.py "
 
 # start showdown connector
-tmux new-session -d -s $SDINT "./runsvc.sh"
+tmux new-session -d -s $SDINT "$BASE/runsvc.sh"
