@@ -1,0 +1,5 @@
+pip install grpcio
+pip install poke-env
+pip install grpcio-tools
+sudo dnf install python3-devel
+pip3 install adafruit-circuitpython-pn532
