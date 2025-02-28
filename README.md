@@ -7,12 +7,22 @@ This project provides a set of tools for interfacing with Pokemon Showdown to pl
 
 It can connect to real Pokemon Showdown servers to play against online players, or two clients can connect together to play head-to-head locally.
 
-## Software requirements
+## Software setup
 Only [Raspberry Pi OS](https://www.raspberrypi.com/software/) is supported.
 
 Raspberry Pi OS dependencies:
 
 `sudo apt install -y npm libopenblas-dev`
+
+Get the repository
+
+`git clone https://github.com/alex-berliner/pokemon_card_game --recursive`
+
+Set var for repository's base directory
+
+`export PCO_BASE=<Your repo location>`
+
+Run `./scripts/setup.sh`. This creates and updates your python environment and generates the required protobufs.
 
 ## Hardware requirements
 - Raspberry Pi 3 or greater
@@ -21,18 +31,17 @@ Raspberry Pi OS dependencies:
 - [MIFARE Classic 1K Tags](https://www.sparkfun.com/rfid-tag-adhesive-mifare-classicr-1k-13-56-mhz.html)
 
 ## Setup
-Get the repository
 
-`git clone https://github.com/alex-berliner/pokemon_card_game --recursive`
+### Create your NFC cards
 
-Set up your python virtual environment
+Burning attack cards
 
 ```
-python -m venv .pco
-. .pco/bin/activate
-pip install -r requirements.txt
+cd $PCO_BASE/nfc/py/pokemon/util/
+python burnattack.py <attack number>
 ```
 
-- burn cards
-
-- init service
+```
+cd $PCO_BASE/nfc/py/pokemon/util/
+python burnpokemon.py <pokemon number>
+```
